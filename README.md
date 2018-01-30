@@ -2,12 +2,15 @@
 > [django|celery|redis|rabitmq|docker|nginx]
 
 
-##### ***deployment*** :
+#### ***deployment*** :
 - 1. Build docker images&container
+
 `cd` to your project
+
 `chmod 777 $pwd` avoid the privilege issue occure
 
 `docker-compose build`
+
 logs:
 ```
 (python3) ➜  Hypnos git:(master) ✗ docker-compose build
@@ -76,8 +79,6 @@ drwxr-xr-x 1 liam liam 4.0K Jan 30 08:16 hypnos
 docker up and check logs
 ```
 (python3) ➜  Hypnos git:(master) ✗ docker-compose up
-
-
 ```
 
 - 2. 
