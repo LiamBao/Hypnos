@@ -63,7 +63,10 @@ hypnos_worker_default   latest              af5e48e01ac7        32 seconds ago  
 
 ```
 
-you can exec into the imgaes to check pro files 
+you can exec into the imgaes to check pro files
+***`(python3) ➜  Hypnos git:(master) ✗ docker run -it --rm 3229be780814 /bin/bash`***
+
+
 ```
 (python3) ➜  Hypnos git:(master) ✗ docker run -it --rm 3229be780814 /bin/bash
 root@cbbe0cc9096c:/src/app# ls -lh
@@ -79,7 +82,6 @@ drwxr-xr-x 1 liam liam 4.0K Jan 30 08:16 hypnos
 
 docker up and check logs
 ```
-(python3) ➜  Hypnos git:(master) ✗ docker-compose up
 (python3) ➜  Hypnos git:(master) ✗ docker-compose up
 Starting hypnos_rabbit_1 ...
 Starting hypnos_redis_1 ...
