@@ -124,7 +124,7 @@ web_1     | INFO 2018-01-30 12:44:40,739 "GET / HTTP/1.1" 200 5222
 ```
 
 
-- ***seting up Django & Celery Tasks***
+- ***setting up Django & Celery Tasks***
 
 Creating users
 
