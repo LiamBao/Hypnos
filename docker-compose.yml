@@ -50,16 +50,16 @@ services:
       - db
 
   # Celery worker
-  worker_default:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile_web
-    command: ./run_celery.sh
-    volumes:
-      - .:/src/app
-    links:
-      - db
-      - rabbit
-      - redis
-    depends_on:
-      - rabbit
+  # worker_default:
+  #   build:
+  #     context: .
+  #     dockerfile: docker/Dockerfile_web
+  #   command: ./run_celery.sh
+  #   volumes:
+  #     - .:/src/app
+  #   links:
+  #     - db
+  #     - rabbit
+  #     - redis
+  #   depends_on:
+  #     - rabbit

@@ -8,6 +8,8 @@ WORKDIR /src/app
 ADD requirements.txt /src/app/
 RUN pip install -r requirements.txt
 ADD . /src/app/
+
 # create unprivileged user
 RUN adduser --disabled-password --gecos '' liam  
-RUN chown -R $USER:$USER .
+RUN chmod 777 /src/app/* \
+&& chown liam:liam /src/app/*
