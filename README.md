@@ -8,9 +8,9 @@
 
 ***`cd`*** to your project
 
-***`chmod 777 $pwd`*** to avoid the privilege issue
+cmd: ***`chmod 777 $pwd`*** to avoid the privilege issue
 
-***`docker-compose build`***
+cmd: ***`docker-compose build`***
 
 logs:
 ~~~
@@ -64,8 +64,8 @@ hypnos_worker_default   latest              af5e48e01ac7        32 seconds ago  
 ```
 
 you can exec into the imgaes to check pro files
-***`(python3) ➜  Hypnos git:(master) ✗ docker run -it --rm 3229be780814 /bin/bash`***
 
+cmd: ***`(python3) ➜  Hypnos git:(master) ✗ docker run -it --rm 3229be780814 /bin/bash`***
 
 ```
 (python3) ➜  Hypnos git:(master) ✗ docker run -it --rm 3229be780814 /bin/bash
