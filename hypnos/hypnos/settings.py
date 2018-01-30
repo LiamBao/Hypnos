@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'celery_test.urls'
+ROOT_URLCONF = 'hypnos.urls'
 
 REST_FRAMEWORK = {  
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny',),

@@ -124,7 +124,25 @@ web_1     | INFO 2018-01-30 12:44:40,739 "GET / HTTP/1.1" 200 5222
 ```
 
 
-- ***Celery Tasks***
+- ***setup Django & Celery Tasks***
+
+Creating users
+
+```
+(python3) ➜  Hypnos git:(master) ✗ docker-compose exec web bash
+root@web:/src/app/hypnos# python manage.py shell
+Python 3.6.4 (default, Dec 21 2017, 01:35:12)
+[GCC 4.9.2] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from django.contrib.auth.models import User
+>>> user = User.objects.create_user('liam', 'liam_bao@example.com', 'liambao')
+>>> user.save()
+```
+
+Creating superusers
+***`python manage.py createsuperuser --username=liam --email=liam@example.com`***
+
 
 The first script ***`run_web.sh`*** will migrate the database and start the Django development server on port 8801. 
 The second one , ***`run_celery.sh`*** will start a Celery worker listening on a queue default.
