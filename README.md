@@ -124,7 +124,21 @@ web_1     | INFO 2018-01-30 12:44:40,739 "GET / HTTP/1.1" 200 5222
 ```
 
 Scaling out a container with docker-compose is extremely easy. Just use the docker-compose scale command with the container name and amount:
-*```docker-compose scale worker=5```*
+*```docker-compose scale worker_default=5```*
+```
+(python3) ➜  Hypnos git:(master) ✗ docker-compose ps
+         Name                        Command                State                              Ports
+-----------------------------------------------------------------------------------------------------------------------------
+hypnos_db_1               docker-entrypoint.sh postgres    Up         0.0.0.0:5432->5432/tcp
+hypnos_rabbit_1           docker-entrypoint.sh rabbi ...   Up         0.0.0.0:15672->15672/tcp, 25672/tcp, 4369/tcp,
+                                                                      5671/tcp, 0.0.0.0:5672->5672/tcp
+hypnos_redis_1            docker-entrypoint.sh redis ...   Up         0.0.0.0:6379->6379/tcp
+hypnos_web_1              ./run_web.sh                     Up         0.0.0.0:8801->8801/tcp
+hypnos_worker_default_1   ./run_celery.sh                  Up
+hypnos_worker_default_2   ./run_celery.sh                  Up
+hypnos_worker_default_3   ./run_celery.sh                  Up
+```
+
 
 - ***setting up Django & Celery Tasks***
 
@@ -151,3 +165,27 @@ Monitoring logs
 The first script ***`run_web.sh`*** will migrate the database and start the Django development server on port 8801. 
 The second one , ***`run_celery.sh`*** will start a Celery worker listening on a queue default.
 
+visit 'http://localhost:8801/celery/jobs/'
+
+output:
+```
+web_1             | INFO 2018-01-30 15:50:10,082 "GET /celery/jobs/ HTTP/1.1" 200 10359
+worker_default_1  | INFO 2018-01-30 15:50:13,817 Received task: celery_test.tasks.fib[8199b13e-1501-4410-885c-19eab03017fd]
+worker_default_1  | [2018-01-30 15:50:13,817: INFO/MainProcess] Received task: celery_test.tasks.fib[8199b13e-1501-4410-885c-19eab03017fd]
+worker_default_1  | INFO 2018-01-30 15:50:13,828 Task celery_test.tasks.fib[8199b13e-1501-4410-885c-19eab03017fd] succeeded in 0.009696149005321786s: None
+worker_default_1  | [2018-01-30 15:50:13,828: INFO/ForkPoolWorker-2] Task celery_test.tasks.fib[8199b13e-1501-4410-885c-19eab03017fd] succeeded in 0.009696149005321786s: None
+web_1             | INFO 2018-01-30 15:50:13,843 "POST /celery/jobs/ HTTP/1.1" 201 10356
+web_1             | INFO 2018-01-30 15:50:17,944 "OPTIONS /celery/jobs/ HTTP/1.1" 200 13411
+web_1             | INFO 2018-01-30 15:50:25,743 "GET /celery/jobs/ HTTP/1.1" 200 10680
+worker_default_1  | INFO 2018-01-30 15:50:39,201 Received task: celery_test.tasks.power[564c0af4-fb74-4cef-87de-2904159a1405]
+worker_default_1  | [2018-01-30 15:50:39,201: INFO/MainProcess] Received task: celery_test.tasks.power[564c0af4-fb74-4cef-87de-2904159a1405]
+worker_default_1  | INFO 2018-01-30 15:50:39,215 Task celery_test.tasks.power[564c0af4-fb74-4cef-87de-2904159a1405] succeeded in 0.012064064998412505s: None
+worker_default_1  | [2018-01-30 15:50:39,215: INFO/ForkPoolWorker-2] Task celery_test.tasks.power[564c0af4-fb74-4cef-87de-2904159a1405] succeeded in 0.012064064998412505s: None
+web_1             | INFO 2018-01-30 15:50:39,239 "POST /celery/jobs/ HTTP/1.1" 201 10352
+worker_default_1  | INFO 2018-01-30 15:50:41,772 Received task: celery_test.tasks.power[2e876b75-c732-4975-94f6-8c1331cad143]
+worker_default_1  | [2018-01-30 15:50:41,772: INFO/MainProcess] Received task: celery_test.tasks.power[2e876b75-c732-4975-94f6-8c1331cad143]
+worker_default_1  | INFO 2018-01-30 15:50:41,783 Task celery_test.tasks.power[2e876b75-c732-4975-94f6-8c1331cad143] succeeded in 0.009442675996979233s: None
+worker_default_1  | [2018-01-30 15:50:41,783: INFO/ForkPoolWorker-2] Task celery_test.tasks.power[2e876b75-c732-4975-94f6-8c1331cad143] succeeded in 0.009442675996979233s: None
+web_1             | INFO 2018-01-30 15:50:41,799 "POST /celery/jobs/ HTTP/1.1" 201 10352
+rabbit_1          | missed heartbeats from client, timeout: 30s
+```
