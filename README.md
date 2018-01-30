@@ -6,11 +6,11 @@
 
 - ***Build docker images&containers***
 
-`cd` to your project
+***`cd`*** to your project
 
 ***`chmod 777 $pwd`*** to avoid the privilege issue
 
-`docker-compose build`
+***`docker-compose build`***
 
 logs:
 ~~~
@@ -119,4 +119,4 @@ web_1     | INFO 2018-01-30 12:44:40,739 "GET / HTTP/1.1" 200 5222
 ```
 
 
-- ***Build docker images&containers***
+- ***celery tasks***
