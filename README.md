@@ -124,6 +124,7 @@ web_1     | INFO 2018-01-30 12:44:40,739 "GET / HTTP/1.1" 200 5222
 ```
 
 Scaling out a container with docker-compose is extremely easy. Just use the docker-compose scale command with the container name and amount:
+
 *```docker-compose scale worker_default=5```*
 ```
 (python3) ➜  Hypnos git:(master) ✗ docker-compose ps
