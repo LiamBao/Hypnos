@@ -1,0 +1,10 @@
+Django
+psycopg2
+celery
+redis
+djangorestframework
+django-celery-results
+django-celery-beat
+anyjson
+django-choices
+django-cacheops
