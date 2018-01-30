@@ -1,5 +1,6 @@
 # Hypnos
-> [django|celery|redis|rabitmq|docker|nginx]
+
+> [django|celery|redis|rabitmq|docker|nginx|uwsgi]
 
 
 ### ***deployment*** :
@@ -158,9 +159,11 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 Creating superusers
+
 **`python manage.py createsuperuser --username=liam --email=liam@example.com`**
 
 Monitoring logs
+
 **```(python3) ➜  Hypnos git:(master) ✗ docker-compose logs -f web```**
 
 The first script  
