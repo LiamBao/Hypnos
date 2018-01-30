@@ -2,8 +2,9 @@
 > [django|celery|redis|rabitmq|docker|nginx]
 
 
-###***deployment*** :
-- ***Build docker images&containers**
+### ***deployment*** :
+
+- ***Build docker images&containers***
 
 `cd` to your project
 
@@ -12,7 +13,7 @@
 `docker-compose build`
 
 logs:
-```
+~~~
 (python3) ➜  Hypnos git:(master) ✗ docker-compose build
 Building worker_default
 Step 1/10 : FROM python:3
@@ -49,7 +50,7 @@ Removing intermediate container 7b391a5f343d
  ---> 3229be780814
 Successfully built 3229be780814
 Successfully tagged hypnos_web:latest
-```
+~~~
 
 verify the images
 ```
