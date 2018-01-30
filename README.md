@@ -65,7 +65,7 @@ hypnos_worker_default   latest              af5e48e01ac7        32 seconds ago  
 
 you can exec into the imgaes to check pro files
 
-cmd: ***`(python3) ➜  Hypnos git:(master) ✗ docker run -it --rm 3229be780814 /bin/bash`***
+cmd: ***` docker run -it --rm 3229be780814 /bin/bash`***
 
 ```
 (python3) ➜  Hypnos git:(master) ✗ docker run -it --rm 3229be780814 /bin/bash
