@@ -4,7 +4,10 @@
 
 ### ***deployment*** :
 
-- ***Build docker images&containers***
+- ***Build docker images& Creating containers***
+
+Since we are working with Docker, we need a proper Dockerfile to specify how our image will be built.
+Customize the web image by  `/Hypnos/docker/Dockerfile_web`
 
 ***`cd`*** to your project
 
@@ -121,4 +124,7 @@ web_1     | INFO 2018-01-30 12:44:40,739 "GET / HTTP/1.1" 200 5222
 ```
 
 
-- ***celery tasks***
+- ***Celery Tasks***
+
+The first script - run_web.sh - will migrate the database and start the Django development server on port 8801. 
+The second one , run_celery.sh, will start a Celery worker listening on a queue default.
