@@ -6,3 +6,4 @@ from .models import Job
 class JobSerializer(serializers.HyperlinkedModelSerializer):  
     class Meta:
         model = Job
+        fields =('type', 'status', 'created_at', 'updated_at' , 'argument' , 'result')

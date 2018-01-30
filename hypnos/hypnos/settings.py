@@ -165,7 +165,6 @@ BROKER_POOL_LIMIT = 1
 BROKER_CONNECTION_TIMEOUT = 10
 
 # Celery configuration
-
 # configure queues, currently we have only one
 CELERY_DEFAULT_QUEUE = 'default'  
 CELERY_QUEUES = (  

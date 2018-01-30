@@ -123,6 +123,8 @@ web_1     | Quit the server with CONTROL-C.
 web_1     | INFO 2018-01-30 12:44:40,739 "GET / HTTP/1.1" 200 5222
 ```
 
+Scaling out a container with docker-compose is extremely easy. Just use the docker-compose scale command with the container name and amount:
+*```docker-compose scale worker=5```*
 
 - ***setting up Django & Celery Tasks***
 
@@ -141,8 +143,10 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 Creating superusers
-**`python manage.py createsuperuser --username=liam --email=liam@example.com`**
+*`python manage.py createsuperuser --username=liam --email=liam@example.com`*
 
+Monitoring logs
+*```(python3) ➜  Hypnos git:(master) ✗ docker-compose logs -f web```*
 
 The first script ***`run_web.sh`*** will migrate the database and start the Django development server on port 8801. 
 The second one , ***`run_celery.sh`*** will start a Celery worker listening on a queue default.

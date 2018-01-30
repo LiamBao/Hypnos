@@ -1,10 +1,8 @@
 from functools import wraps
-
-from hypnos.celeryconf import app
+from hypnos.celeryconfig import app
 from .models import Job
 
 # decorator to avoid code duplication
-
 def update_job(fn):  
     """Decorator that will update Job with result of the function"""
 
