@@ -158,20 +158,20 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 Creating superusers
-
 **`python manage.py createsuperuser --username=liam --email=liam@example.com`**
 
 Monitoring logs
-
 **```(python3) ➜  Hypnos git:(master) ✗ docker-compose logs -f web```**
 
 The first script  
-***`run_web.sh`*** 
+***`run_web.sh`***
 will migrate the database and start the Django development server on port 8801. 
 
-The second one , 
-***`run_celery.sh`*** 
+The second one  
+***`run_celery.sh`***
 will start a Celery worker listening on a queue default.
+
+
 
 Visit 'http://localhost:8801/celery/jobs/'
 
