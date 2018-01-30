@@ -2,12 +2,12 @@
 > [django|celery|redis|rabitmq|docker|nginx]
 
 
-#### ***deployment*** :
-- 1. Build docker images&container
+###***deployment*** :
+- ***Build docker images&containers**
 
 `cd` to your project
 
-`chmod 777 $pwd` avoid the privilege issue occure
+`chmod 777 $pwd` to avoid the privilege issue
 
 `docker-compose build`
 
