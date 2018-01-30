@@ -8,7 +8,7 @@
 
 `cd` to your project
 
-`chmod 777 $pwd` to avoid the privilege issue
+***`chmod 777 $pwd`*** to avoid the privilege issue
 
 `docker-compose build`
 
@@ -80,6 +80,43 @@ drwxr-xr-x 1 liam liam 4.0K Jan 30 08:16 hypnos
 docker up and check logs
 ```
 (python3) ➜  Hypnos git:(master) ✗ docker-compose up
+(python3) ➜  Hypnos git:(master) ✗ docker-compose up
+Starting hypnos_rabbit_1 ...
+Starting hypnos_redis_1 ...
+Starting hypnos_db_1 ... done
+Creating hypnos_web_1    ... done
+Attaching to hypnos_rabbit_1, hypnos_redis_1, hypnos_db_1, hypnos_web_1
+redis_1   | 1:C 30 Jan 12:44:00.792 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis_1   | 1:C 30 Jan 12:44:00.792 # Redis version=4.0.7, bits=64, commit=00000000, modified=0, pid=1, just started
+db_1      | 2018-01-30 12:44:00.931 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+...
+...
+web_1     | Operations to perform:
+web_1     |   Apply all migrations: admin, auth, contenttypes, sessions
+web_1     | Running migrations:
+web_1     |   Applying contenttypes.0001_initial... OK
+web_1     |   Applying auth.0001_initial... OK
+web_1     |   Applying admin.0001_initial... OK
+web_1     |   Applying admin.0002_logentry_remove_auto_add... OK
+web_1     |   Applying contenttypes.0002_remove_content_type_name... OK
+web_1     |   Applying auth.0002_alter_permission_name_max_length... OK
+web_1     |   Applying auth.0003_alter_user_email_max_length... OK
+web_1     |   Applying auth.0004_alter_user_username_opts... OK
+web_1     |   Applying auth.0005_alter_user_last_login_null... OK
+web_1     |   Applying auth.0006_require_contenttypes_0002... OK
+web_1     |   Applying auth.0007_alter_validators_add_error_messages... OK
+web_1     |   Applying auth.0008_alter_user_username_max_length... OK
+web_1     |   Applying auth.0009_alter_user_last_name_max_length... OK
+web_1     |   Applying sessions.0001_initial... OK
+web_1     | Performing system checks...
+web_1     |
+web_1     | System check identified no issues (0 silenced).
+web_1     | January 30, 2018 - 12:44:09
+web_1     | Django version 2.0.1, using settings 'hypnos.settings'
+web_1     | Starting development server at http://0.0.0.0:8801/
+web_1     | Quit the server with CONTROL-C.
+web_1     | INFO 2018-01-30 12:44:40,739 "GET / HTTP/1.1" 200 5222
 ```
 
-- 2. 
+
+- ***Build docker images&containers***
