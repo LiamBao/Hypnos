@@ -4,7 +4,7 @@
 
 ### ***deployment*** :
 
-- ***Build docker images& Create containers***
+- ***Building docker images& Creating containers***
 
 Since we are working with Docker, we need a proper Dockerfile to specify how our image will be built.
 Customize the web image by  `/Hypnos/docker/Dockerfile_web`
@@ -124,7 +124,7 @@ web_1     | INFO 2018-01-30 12:44:40,739 "GET / HTTP/1.1" 200 5222
 ```
 
 
-- ***setup Django & Celery Tasks***
+- ***seting up Django & Celery Tasks***
 
 Creating users
 
@@ -136,12 +136,12 @@ Python 3.6.4 (default, Dec 21 2017, 01:35:12)
 Type "help", "copyright", "credits" or "license" for more information.
 (InteractiveConsole)
 >>> from django.contrib.auth.models import User
->>> user = User.objects.create_user('liam', 'liam_bao@example.com', 'liambao')
+>>> user = User.objects.create_user('liam', 'liam_bao@example.com', 'Baokai2018')
 >>> user.save()
 ```
 
 Creating superusers
-***`python manage.py createsuperuser --username=liam --email=liam@example.com`***
+**`python manage.py createsuperuser --username=liam --email=liam@example.com`**
 
 
 The first script ***`run_web.sh`*** will migrate the database and start the Django development server on port 8801. 
