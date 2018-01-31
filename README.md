@@ -5,7 +5,7 @@
 
 ## ***deployment*** :
 
-###- ***Building docker images& Creating containers***
+### - ***Building docker images& Creating containers***
 
 Since we are working with Docker, we need a proper Dockerfile to specify how our image will be built.
 Customize the web image by  `/Hypnos/docker/Dockerfile_web`
@@ -203,7 +203,7 @@ rabbit_1          | missed heartbeats from client, timeout: 30s
 
 
 
-###- ***Setting up Django and web server with uWSGI and nginx***
+### - ***Setting up Django and web server with uWSGI and nginx***
 
 > `for doc: https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html`
 
