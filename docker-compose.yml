@@ -49,6 +49,22 @@ services:
     depends_on:
       - db
 
+  #Nginx
+  nginx:
+    restart: always
+    build: docker/Dockerfile_nginx
+    ports:
+      - "80:80"
+    volumes:
+      - /www/static
+    volumes_from:
+      - web
+    links:
+      - web
+    depends_on:
+      - web
+      - db
+
   # Celery worker
   worker_default:
     build:
