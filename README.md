@@ -85,6 +85,7 @@ drwxr-xr-x 1 liam liam 4.0K Jan 30 08:16 hypnos
 ```
 
 docker up and check logs
+`docker-compose up -d ` Run containers in the background
 ```
 (python3) ➜  Hypnos git:(master) ✗ docker-compose up
 Starting hypnos_rabbit_1 ...
@@ -222,10 +223,26 @@ uWSGI is a WSGI implementation. In this tutorial we will set up uWSGI so that it
 
 **```  the web client <-> the web server(Nginx) <-> the socket <-> uwsgi <-> Django```**
 
-
-
+collect static files 
+```
+python manage.py collectstatic
+```
 
 
 ```
-python manage.py collectstatic
+docker-compose ps 
+```
+
+```
+➜  Hypnos git:(rebuild_hypnos) docker-compose ps
+         Name                        Command               State                        Ports
+-------------------------------------------------------------------------------------------------------------------
+hypnos_db_1               docker-entrypoint.sh postgres    Up      0.0.0.0:5432->5432/tcp
+hypnos_nginx_1            nginx -g daemon off;             Up      80/tcp, 0.0.0.0:8000->8000/tcp
+hypnos_rabbit_1           docker-entrypoint.sh rabbi ...   Up      0.0.0.0:15672->15672/tcp, 25672/tcp, 4369/tcp,
+                                                                   5671/tcp, 0.0.0.0:5672->5672/tcp
+hypnos_redis_1            docker-entrypoint.sh redis ...   Up      0.0.0.0:6379->6379/tcp
+hypnos_web_1              ./run_web.sh                     Up      0.0.0.0:8801->8801/tcp
+hypnos_worker_default_1   ./run_celery.sh                  Up
+➜  Hypnos git:(rebuild_hypnos) ✗
 ```
