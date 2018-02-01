@@ -27,7 +27,7 @@ su -m liam -c "python manage.py collectstatic  --noinput"
 su -m liam -c " rm -rf ${PROJECT_PATH}/uwsgi.ini "
 su -m liam -c "rm -rf ${PROJECT_PATH}/hpnos/static"
 su -m liam -c "echo '' > ${PROJECT_PATH}/hypnos/logs/debug.log"
-su -m liam -c "rm -rf ${PROJECT_PATH}/nginx/logs && mkdir ${PROJECT_PATH}/nginx/logs"
+# su -m liam -c "rm -rf ${PROJECT_PATH}/nginx/logs && mkdir ${PROJECT_PATH}/nginx/logs"
 
 # generate config file for uwsgi
 #https type
@@ -74,7 +74,7 @@ threads=2
 # the socket (use the full path to be safe
 socket          = $PROJECT_PATH/hypnos/app.sock
 # ... with appropriate permissions - may be needed
-# chmod-socket    = 664
+chmod-socket    = 664
 # clear environment on exit
 vacuum          = true
 

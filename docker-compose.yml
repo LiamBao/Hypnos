@@ -56,15 +56,14 @@ services:
       context: .
       dockerfile: docker/Dockerfile_nginx
     ports:
-      - "8080:80"
+      - "8000:8000"
     volumes:
-      - ../nginx/logs:/var/log/nginx
+      - .:/src/app
+      # - ~/Desktop/github/Hypnos/nginx/logs:/var/log/nginx
     links:
       - web
-      - redis
     depends_on:
       - web
-      - redis
 
   # Celery worker
   worker_default:
