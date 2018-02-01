@@ -9,3 +9,4 @@ anyjson
 django-choices
 django-cacheops
 kombu
+uwsgi

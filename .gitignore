@@ -2,6 +2,14 @@
 .\#*
 \#*#
 
+#ignore generated files when start the project
+*.sample
+*.ini
+*.sock
+static
+/nginx/logs/*
+
+
 *.py[co]
 __pycache__/
 /*.egg

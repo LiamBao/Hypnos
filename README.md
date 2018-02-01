@@ -142,7 +142,7 @@ hypnos_worker_default_3   ./run_celery.sh                  Up
 ```
 
 
-###- ***setting up Django & Celery Tasks***
+### - ***setting up Django & Celery Tasks***
 
 Creating users
 
@@ -203,11 +203,11 @@ rabbit_1          | missed heartbeats from client, timeout: 30s
 
 
 
-### - ***Setting up Django and web server with uWSGI and nginx***
+### - ***Setting up Django and web server with uWSGI and Nginx***
 
-> `for doc: https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html`
+> `for doc: [uWSGI]`(https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html)
 
-#### ***nginx*** (pronounced engine-x) 
+#### ***nginx***
 
 is a free, open-source, high-performance HTTP server and reverse proxy, as well as an IMAP/POP3 proxy server.
 nginx and uWSGI are good choices for Django deployment, but they are not the only ones, or the ‘official’ ones. There are excellent alternatives to both, and you are encouraged to investigate them.
@@ -220,5 +220,12 @@ A Web Server Gateway Interface does this job. WSGI is a Python standard.
 
 uWSGI is a WSGI implementation. In this tutorial we will set up uWSGI so that it creates a Unix socket, and serves responses to the web server via the uwsgi protocol. At the end, our complete stack of components will look like this:
 
-**```the web client <-> the web server <-> the socket <-> uwsgi <-> Django```**
+**```  the web client <-> the web server(Nginx) <-> the socket <-> uwsgi <-> Django```**
 
+
+
+
+
+```
+python manage.py collectstatic
+```

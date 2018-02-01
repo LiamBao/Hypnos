@@ -52,21 +52,23 @@ services:
   #Nginx
   nginx:
     restart: always
-    build: docker/Dockerfile_nginx
+    build:
+      context: .
+      dockerfile: docker/Dockerfile_nginx
     ports:
-      - "80:80"
+      - "8080:80"
     volumes:
-      - /www/static
-    volumes_from:
-      - web
+      - ../nginx/logs:/var/log/nginx
     links:
       - web
+      - redis
     depends_on:
       - web
-      - db
+      - redis
 
   # Celery worker
   worker_default:
+    restart: always
     build:
       context: .
       dockerfile: docker/Dockerfile_web
