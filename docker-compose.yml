@@ -80,3 +80,25 @@ services:
       - redis
     depends_on:
       - rabbit
+
+  #Flower
+  flower:
+    restart: always
+    hostname: flower
+    build:
+      context: .
+      dockerfile: docker/Dockerfile_flower
+    environment:
+      - C_FORCE_ROOT=true
+      - AMQP_USERNAME=liam
+      - AMQP_PASSWORD=liambao
+    ports:
+      - "5555:5555"
+    volumes:
+      - .:/src/app
+    links:
+      - web
+      - worker_default
+    depends_on:
+      - web
+      - worker_default 

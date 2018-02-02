@@ -16,7 +16,7 @@ cmd: ***`chmod 777 $pwd`*** to avoid the privilege issue
 
 cmd: ***`docker-compose build`***
 
-logs:
+view the logs:
 ~~~
 (python3) ➜  Hypnos git:(master) ✗ docker-compose build
 Building worker_default
@@ -84,7 +84,7 @@ drwxr-xr-x 1 liam liam 4.0K Jan 30 08:16 hypnos
 -rw-r--r-- 1 liam liam  356 Jan 30 07:30 run_web.sh
 ```
 
-docker up and check logs
+docker up and view the logs
 ```
 (python3) ➜  Hypnos git:(master) ✗ docker-compose up
 Starting hypnos_rabbit_1 ...
@@ -222,8 +222,13 @@ uWSGI is a WSGI implementation. In this tutorial we will set up uWSGI so that it
 
 **```  the web client <-> the web server(Nginx) <-> the socket <-> uwsgi <-> Django```**
 
+Collecting static files 
+```
+python manage.py collectstatic
+```
 
-
+End of this tutorial
+*`docker-compose ps`*
 
 
 ```
